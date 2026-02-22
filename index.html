@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY - Instant Payment Gateway for Restaurants | Sino Technology Solutions</title>
+    <meta name="description" content="Save $7,800/year on payment processing. VELOCITY connects your restaurant to FedNow instant payments. Money in seconds, not days. NYC & Tampa pilot program.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #1A2B49;
+            --orange: #F15A29;
+            --light-gray: #F5F7FB;
+            --white: #FFFFFF;
+            --gray-dark: #1f2937;
+            --gray-medium: #6b7280;
+            --green: #10b981;
+        }
+        
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a4066 100%);
+            color: white;
+            padding: 60px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(241, 90, 41, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(241, 90, 41, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pilot-badge {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.6s ease-out;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero h1 .highlight {
+            color: var(--orange);
+            display: block;
+            font-size: 72px;
+            margin: 10px 0;
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 4px 20px rgba(241, 90, 41, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #d94d1f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(241, 90, 41, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--navy);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--orange);
+            color: white;
+            padding: 30px 20px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+        
+        /* Problem/Solution Section */
+        .problem-solution {
+            padding: 60px 20px;
+            background: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--navy);
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .card-problem {
+            border-left: 5px solid #dc2626;
+        }
+        
+        .card-solution {
+            border-left: 5px solid var(--green);
+        }
+        
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .card-problem h3 {
+            color: #dc2626;
+        }
+        
+        .card-solution h3 {
+            color: var(--green);
+        }
+        
+        .card ul {
+            list-style: none;
+        }
+        
+        .card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .card li::before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            font-size: 24px;
+            line-height: 1;
+        }
+        
+        .card-problem li::before {
+            color: #dc2626;
+        }
+        
+        .card-solution li::before {
+            color: var(--green);
+        }
+        
+        /* ROI Calculator */
+        .roi-section {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .roi-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+        
+        .roi-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .roi-table thead {
+            background: var(--navy);
+            color: white;
+        }
+        
+        .roi-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .roi-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 14px;
+        }
+        
+        .roi-table tbody tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .roi-table .savings {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 60px 20px;
+            background: var(--light-gray);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 20px rgba(241, 90, 41, 0.3);
+        }
+        
+        .step h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+        
+        .step p {
+            color: var(--gray-medium);
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.popular {
+            border: 3px solid var(--orange);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--orange);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+        
+        .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        
+        .price-subtitle {
+            color: var(--gray-medium);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .pricing-total {
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 20px;
+        }
+        
+        /* Guarantee */
+        .guarantee {
+            background: var(--green);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .guarantee h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .guarantee p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 60px 20px;
+            background: var(--light-gray);
+        }
+        
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--orange);
+        }
+        
+        .faq-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .faq-item p {
+            color: var(--gray-dark);
+            font-size: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-method strong {
+            color: var(--orange);
+        }
+        
+        .urgency {
+            background: var(--orange);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .hero h1 .highlight {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .two-col,
+            .steps,
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-item h3 {
+                font-size: 32px;
+            }
+            
+            .steps {
+                gap: 30px;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero {
+                padding: 40px 15px 60px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .hero h1 .highlight {
+                font-size: 40px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-item h3 {
+                font-size: 28px;
+            }
+            
+            .stat-item p {
+                font-size: 13px;
+            }
+            
+            .card {
+                padding: 25px 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-method {
+                font-size: 16px;
+            }
+            
+            .roi-table {
+                overflow-x: auto;
+            }
+            
+            .roi-table th,
+            .roi-table td {
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+            
+            .roi-table .savings {
+                font-size: 14px;
+            }
+            
+            .pricing-card {
+                padding: 30px 20px;
+            }
+            
+            .price {
+                font-size: 40px;
+            }
+            
+            .faq-item {
+                padding: 20px 15px;
+            }
+            
+            .faq-item h3 {
+                font-size: 16px;
+            }
+            
+            .faq-item p {
+                font-size: 14px;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+            
+            .cta-section p {
+                font-size: 16px;
+            }
+            
+            .urgency {
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pilot-badge">NYC & TAMPA PILOT PROGRAM</div>
+            <h1>
+                Stop Losing
+                <span class="highlight">$7,800/Year</span>
+                to Payment Processors
+            </h1>
+            <p class="hero-subtitle">
+                VELOCITY connects your restaurant to the Federal Reserve's instant payment network. 
+                Money in seconds, not days. Flat $0.15 fee, not 2.5%.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Join Pilot Program</a>
+                <a href="#roi" class="btn btn-secondary">See Your Savings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>$7,800</h3>
+                <p>Average Annual Savings</p>
+            </div>
+            <div class="stat-item">
+                <h3>&lt;2 sec</h3>
+                <p>Payment Settlement Time</p>
+            </div>
+            <div class="stat-item">
+                <h3>$0.15</h3>
+                <p>Flat Fee Per Transaction</p>
+            </div>
+            <div class="stat-item">
+                <h3>2 hours</h3>
+                <p>Complete Installation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution -->
+    <section class="problem-solution">
+        <div class="container">
+            <h2 class="section-title">The Problem vs. The Solution</h2>
+            <div class="two-col">
+                <div class="card card-problem">
+                    <h3>❌ The Problem</h3>
+                    <ul>
+                        <li>Credit cards charge 2.5-3.5% per transaction</li>
+                        <li>$50k monthly sales = $1,875 in fees</li>
+                        <li>Money tied up 2-5 days waiting to settle</li>
+                        <li>Chargebacks cost time and money</li>
+                    </ul>
+                </div>
+                <div class="card card-solution">
+                    <h3>✅ The VELOCITY Solution</h3>
+                    <ul>
+                        <li>Federal Reserve's instant payment network</li>
+                        <li>Money in seconds, $0.15 flat fee per transaction</li>
+                        <li>Works with Toast, Square, Clover — any POS</li>
+                        <li>Auto-syncs to QuickBooks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Table -->
+    <section class="roi-section" id="roi">
+        <div class="container">
+            <h2 class="section-title">The Math is Simple</h2>
+            <div class="roi-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Your Monthly Sales</th>
+                            <th>Credit Cards (2.5%)</th>
+                            <th>With Velocity</th>
+                            <th>You Save</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$30,000</td>
+                            <td>$750/month</td>
+                            <td>$495/month</td>
+                            <td class="savings">$255/month</td>
+                        </tr>
+                        <tr>
+                            <td>$50,000</td>
+                            <td>$1,250/month</td>
+                            <td>$675/month</td>
+                            <td class="savings">$575/month</td>
+                        </tr>
+                        <tr>
+                            <td>$100,000</td>
+                            <td>$2,500/month</td>
+                            <td>$1,050/month</td>
+                            <td class="savings">$1,450/month</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How VELOCITY Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install</h3>
+                    <p>Small device next to your router. 2-hour setup, plug-and-play.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Connect</h3>
+                    <p>Works with any POS system (Toast, Square, Clover). No changes needed.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Save</h3>
+                    <p>Money in seconds, not days. See savings immediately on first transaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Pilot Program Pricing</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Managed</h3>
+                    <div class="price">$500</div>
+                    <div class="price-subtitle">down + $300/mo</div>
+                    <ul class="pricing-features">
+                        <li>⚡ 2-hour setup</li>
+                        <li>🛡️ 24/7 support</li>
+                        <li>🔄 Free updates</li>
+                    </ul>
+                    <div class="pricing-total">Total: ~$750/mo</div>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 20px; width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3>Hybrid</h3>
+                    <div class="price">$1,500</div>
+                    <div class="price-subtitle">down + $150/mo</div>
+                    <ul class="pricing-features">
+                        <li>⚡ 2-hour setup</li>
+                        <li>📞 Business hours</li>
+                        <li>🔄 You update</li>
+                    </ul>
+                    <div class="pricing-total">Total: ~$600/mo</div>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 20px; width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Self-Managed</h3>
+                    <div class="price">$2,500</div>
+                    <div class="price-subtitle">one-time + $50/mo</div>
+                    <ul class="pricing-features">
+                        <li>⚡ Setup + training</li>
+                        <li>📧 Email support</li>
+                        <li>🔧 You manage</li>
+                    </ul>
+                    <div class="pricing-total">Total: ~$500/mo</div>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 20px; width: 100%;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <h2>90-Day Money-Back Guarantee</h2>
+        <p>If you don't save money, we refund 100% + $500 for your time</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Do my customers need special apps?</h3>
+                    <p>No. Customers pay through their existing bank app. Works with any bank on the FedNow network.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if my internet goes down?</h3>
+                    <p>Payments queue locally and process automatically when connection returns. Zero downtime.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I still accept credit cards?</h3>
+                    <p>Absolutely. Velocity supplements your current system. Credit cards remain as backup.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long until I see savings?</h3>
+                    <p>Immediately. First payment through Velocity saves you 2.35% vs credit cards.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is this legal and secure?</h3>
+                    <p>Yes. Uses Federal Reserve's FedNow network. Bank-grade encryption, PCI compliant.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the pilot program?</h3>
+                    <p>First 20 restaurants in NYC/Tampa get priority onboarding, dedicated support, and featured in our case studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Join the Pilot Program</h2>
+            <p>Get instant payments, lower fees, and better cash flow starting next week</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <span>📞</span>
+                    <div><strong>Call/Text:</strong> 919-335-3723</div>
+                </div>
+                <div class="contact-method">
+                    <span>✉️</span>
+                    <div><strong>Email:</strong> info@sinotechsol.com</div>
+                </div>
+            </div>
+            
+            <div class="urgency">
+                ⚡ LIMITED PILOT: First 20 restaurants (NYC & Tampa)
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Sino Technology Solutions</strong> | Enterprise IT & Payment Infrastructure Solutions</p>
+            <p style="margin-top: 10px;">Tampa, FL & New York, NY | info@sinotechsol.com</p>
+            <p style="margin-top: 15px; font-size: 12px;">Velocity uses the Federal Reserve's FedNow Service | Not affiliated with or endorsed by the Federal Reserve</p>
+        </div>
+    </footer>
+</body>
+</html>
